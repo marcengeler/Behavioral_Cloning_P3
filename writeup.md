@@ -42,8 +42,8 @@ Also because also inverted images with the negative measurement value were taken
 
 As a comparison, the training data before any improvements were made, looked as follows:
 
-[hist_data]: ./examples/hist_angle_v1.PNG "Histogram of Angles"
-![alt text][hist_data]
+[hist_data1]: ./examples/hist_angle_v1.PNG "Histogram of Angles"
+![alt text][hist_data1]
 
 Due to the nature of the track with it's tendency to go left, the data looked very onesided and unequally distributed.
 
