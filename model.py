@@ -19,9 +19,9 @@ for line in lines:
 		images.append(np.fliplr(image))
 		measurement = float(line[3])
 		if i==1:
-			measurement = measurement + 0.15
+			measurement = measurement + 0.25
 		if i==2:
-			measurement = measurement -0.15
+			measurement = measurement -0.25
 		measurements.append(measurement)
 		measurements.append(-measurement)
 
@@ -47,10 +47,10 @@ model.add(Convolution2D(64, 3,3, activation='relu'))
 model.add(Convolution2D(64, 3,3, activation='relu'))
 model.add(Flatten())
 model.add(Activation('relu'))
-model.add(Dropout(0.65))
-model.add(Dense(60))
-model.add(Dropout(0.65))
-model.add(Dense(30))
+model.add(Dropout(0.4))
+model.add(Dense(50))
+model.add(Dropout(0.4))
+model.add(Dense(25))
 model.add(Dense(1))
 
 model.compile(loss='mse', optimizer='adam')

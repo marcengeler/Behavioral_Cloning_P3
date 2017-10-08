@@ -49,7 +49,7 @@ The overall model at this point lookes like follows
 | Convolution 5 x 5	    | 2 x 2	stride, outputs 33x12x48 				|
 | Convolution 3 x 3	    | outputs 31x10x64 								|
 | Convolution 3 x 3	    | outputs 29x8x64								|
-| RELU					|												|
+| Flatten				|												|
 | Dropout				| 50% Dropout Rate								|
 | Fully connected		| 60 Hidden Units								|
 | Dropout				| 50% Dropout Rate								|
@@ -104,7 +104,7 @@ A possible countermeasure was to reduce the layer size or introduce mode dropout
 | Convolution 5 x 5	    | 2 x 2	stride, outputs 33x12x48 				|
 | Convolution 3 x 3	    | outputs 31x10x64 								|
 | Convolution 3 x 3	    | outputs 29x8x64								|
-| RELU					|												|
+| Flatten				|												|
 | Dropout				| 65% Dropout Rate								|
 | Fully connected		| 60 Hidden Units								|
 | Dropout				| 65% Dropout Rate								|
@@ -138,7 +138,7 @@ Also the dropout rate was reduced to 50% to see if a less robust training can le
 | Convolution 5 x 5	    | 2 x 2	stride, outputs 33x12x48 				|
 | Convolution 3 x 3	    | outputs 31x10x64 								|
 | Convolution 3 x 3	    | outputs 29x8x64								|
-| RELU					|												|
+| Flatten				|												|
 | Dropout				| 40% Dropout Rate								|
 | Fully connected		| 60 Hidden Units								|
 | RELU					|												|
@@ -163,7 +163,6 @@ training data that still persist are:
 In order to overcome those issues, I made another training run, recording just data from those parts of the track in both directions. Also in order to improve
 the run over the bridge, I recorded multiple "saves", e.g. runs from the bridge border to the center.
 
-
 ### Final Model Architecture
 
 The final model architecture looks as follows. The last improvements were made by gathering more data at critical points of the track.
@@ -178,11 +177,11 @@ The final model architecture looks as follows. The last improvements were made b
 | Convolution 5 x 5	    | 2 x 2	stride, outputs 33x12x48 				|
 | Convolution 3 x 3	    | outputs 31x10x64 								|
 | Convolution 3 x 3	    | outputs 29x8x64								|
-| RELU					|												|
-| Dropout				| 65% Dropout Rate								|
-| Fully connected		| 60 Hidden Units								|
-| Dropout				| 65% Dropout Rate								|
-| Fully connected		| 30 Hidden Units								|
+| Flatten				|												|
+| Dropout				| 50% Dropout Rate								|
+| Fully connected		| 50 Hidden Units								|
+| Dropout				| 50% Dropout Rate								|
+| Fully connected		| 25 Hidden Units								|
 | Output Layer			| 1 Regression Value							|
 
 The loss function show a quite robust behavior numerically, and behave equally well on the test track. The improvements which were made to
@@ -190,9 +189,10 @@ the training data also showed improvements in the autonomous behavior.
 
 If I manouvered the car to the side of the bridge, it was now able to navigate back to the center, a behavior which couldn't be observed before.
 
-The larger training dataset 32000 images instead of 16000 images, also meant, that overfitting would be less of an issue, and that training for more
+The larger training dataset 38000 images instead of 16000 images, also meant, that overfitting would be less of an issue, and that training for more
 than 10 epochs may improve the validation loss.
-To test this assumption the model was trained for 20 epochs instead of 10.
+To test this assumption the model was trained for 20 epochs instead of 10. Also due to increased training time, I thought of reducing the model size 
+a bit, in order to reduce overfitting even more.
 
 ![alt text][val_loss_5]
 
