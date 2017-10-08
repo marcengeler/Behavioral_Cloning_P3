@@ -24,6 +24,7 @@ The goals / steps of this project are the following:
 [critical_point_1]: ./examples/critical_point_1.PNG "Critical Point Curve"
 [critical_point_2]: ./examples/critical_point_2.PNG "Critical Point Curve"
 [critical_point_3]: ./examples/critical_point_3.PNG "Critical Point Curve"
+
 ---
 
 ### Model Architecture and Training Strategy
@@ -181,10 +182,12 @@ The final model architecture looks as follows. The last improvements were made b
 | Convolution 3 x 3	    | outputs 29x8x64								|
 | Flatten				|												|
 | RELU					|												|
-| Dropout				| 40% Dropout Rate								|
-| Fully connected		| 50 Hidden Units								|
-| Dropout				| 40% Dropout Rate								|
-| Fully connected		| 25 Hidden Units								|
+| Dropout				| 50% Dropout Rate								|
+| Fully connected		| 64 Hidden Units								|
+| RELU					|												|
+| Dropout				| 50% Dropout Rate								|
+| Fully connected		| 32 Hidden Units								|
+| RELU					|												|
 | Output Layer			| 1 Regression Value							|
 
 The loss function show a quite robust behavior numerically, and behave equally well on the test track. The improvements which were made to
@@ -192,7 +195,7 @@ the training data also showed improvements in the autonomous behavior.
 
 If I manouvered the car to the side of the bridge, it was now able to navigate back to the center, a behavior which couldn't be observed before.
 
-The larger training dataset 43000 images instead of 16000 images, also meant, that overfitting would be less of an issue.
+The larger training dataset 46000 images instead of 16000 images, also meant, that overfitting would be less of an issue.
 
 ![alt text][val_loss_5]
 
@@ -220,35 +223,6 @@ Makes it hard for the model to grasp it. The training set thus contained multipl
 The same holds true for the following two critical points.
 
 ![alt text][critical_point_2]
-![alt text][critical_point_2]
+![alt text][critical_point_3]
 
 The have the same issues as mentioned before. And could be solved by adding more training data to the system.
-
-
-####3. Creation of the Training Set & Training Process
-
-To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
-
-![alt text][image2]
-
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
-
-![alt text][image3]
-![alt text][image4]
-![alt text][image5]
-
-Then I repeated this process on track two in order to get more data points.
-
-To augment the data sat, I also flipped images and angles thinking that this would ... For example, here is an image that has then been flipped:
-
-![alt text][image6]
-![alt text][image7]
-
-Etc ....
-
-After the collection process, I had X number of data points. I then preprocessed this data by ...
-
-
-I finally randomly shuffled the data set and put Y% of the data into a validation set. 
-
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
