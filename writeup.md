@@ -187,10 +187,12 @@ The final model architecture looks as follows. The last improvements were made b
 
 The loss function show a quite robust behavior numerically, and behave equally well on the test track. The improvements which were made to
 the training data also showed improvements in the autonomous behavior.
+
 If I manouvered the car to the side of the bridge, it was now able to navigate back to the center, a behavior which couldn't be observed before.
 
-The larger training dataset 24000 images instead of 16000 images, also meant, that overfitting would be less of an issue, and that training for more
-than 10 epochs may improve the validation loss. To test this assumption the model was trained for 20 epochs instead of 10.
+The larger training dataset 32000 images instead of 16000 images, also meant, that overfitting would be less of an issue, and that training for more
+than 10 epochs may improve the validation loss.
+To test this assumption the model was trained for 20 epochs instead of 10.
 
 ![alt text][val_loss_5]
 
