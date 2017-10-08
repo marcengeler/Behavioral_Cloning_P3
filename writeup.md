@@ -21,7 +21,8 @@ The goals / steps of this project are the following:
 [val_loss_3]: ./examples/val_loss_3.PNG "Loss Function over Epochs"
 [val_loss_4]: ./examples/val_loss_4.PNG "Loss Function over Epochs"
 [val_loss_5]: ./examples/val_loss_5.PNG "Loss Function over Epochs"
-
+[offtrack] : ./examples/offtrack_navigation.PNG "Offtrack Navigation"
+[critical_point_1] : ./examples/critical_point_1.PNG "Critical Point Curve"
 ---
 
 ### Model Architecture and Training Strategy
@@ -178,9 +179,10 @@ The final model architecture looks as follows. The last improvements were made b
 | Convolution 3 x 3	    | outputs 31x10x64 								|
 | Convolution 3 x 3	    | outputs 29x8x64								|
 | Flatten				|												|
-| Dropout				| 50% Dropout Rate								|
+| RELU					|												|
+| Dropout				| 40% Dropout Rate								|
 | Fully connected		| 50 Hidden Units								|
-| Dropout				| 50% Dropout Rate								|
+| Dropout				| 40% Dropout Rate								|
 | Fully connected		| 25 Hidden Units								|
 | Output Layer			| 1 Regression Value							|
 
@@ -189,12 +191,32 @@ the training data also showed improvements in the autonomous behavior.
 
 If I manouvered the car to the side of the bridge, it was now able to navigate back to the center, a behavior which couldn't be observed before.
 
-The larger training dataset 38000 images instead of 16000 images, also meant, that overfitting would be less of an issue, and that training for more
-than 10 epochs may improve the validation loss.
-To test this assumption the model was trained for 20 epochs instead of 10. Also due to increased training time, I thought of reducing the model size 
-a bit, in order to reduce overfitting even more.
+The larger training dataset 43000 images instead of 16000 images, also meant, that overfitting would be less of an issue.
 
 ![alt text][val_loss_5]
+
+#### Honorable Mentions
+
+The most tricky Part in the End was the dirt curve shortly after the bridge, which could be solved by gathering more trainig data at this point.
+
+![alt text][offtrack]
+
+One honorable mention has to go to the system which was able to navigate some meters offtrack anyway. I really likes that result.
+
+#### Critical Points
+
+One of the most critical points in the track was this curve, depicted right below.
+
+![alt text][critical_point_1]
+
+The special nature of this curve:
+	- very narrow
+	- lots of sky in the background
+	- Previous narrow curve with different roadsides
+	- bridge following up
+	
+Makes it hard for the model to grasp it. The training set thus contained multiple runs through this curve, to get a better training in this point.
+
 
 ####3. Creation of the Training Set & Training Process
 
