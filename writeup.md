@@ -22,7 +22,8 @@ The goals / steps of this project are the following:
 [val_loss_5]: ./examples/val_loss_5.PNG "Loss Function over Epochs"
 [offtrack]: ./examples/offtrack_navigation.PNG "Offtrack Navigation"
 [critical_point_1]: ./examples/critical_point_1.PNG "Critical Point Curve"
-
+[critical_point_2]: ./examples/critical_point_2.PNG "Critical Point Curve"
+[critical_point_3]: ./examples/critical_point_3.PNG "Critical Point Curve"
 ---
 
 ### Model Architecture and Training Strategy
@@ -157,9 +158,9 @@ to my decision, to stay with the more robust model.
 
 Personally I preferred this architecture, because it performed better numerically and may probably be improved with better training data. Issues with the
 training data that still persist are:
-	- Lack of Bridge Data
-	- Lack of Curve Data
-	- Lack of Data with odd borders (Dirt Border at one part of the road)
+* Lack of Bridge Data
+* Lack of Curve Data
+* Lack of Data with odd borders (Dirt Border at one part of the road)
 	
 In order to overcome those issues, I made another training run, recording just data from those parts of the track in both directions. Also in order to improve
 the run over the bridge, I recorded multiple "saves", e.g. runs from the bridge border to the center.
@@ -210,12 +211,18 @@ One of the most critical points in the track was this curve, depicted right belo
 ![alt text][critical_point_1]
 
 The special nature of this curve:
-	- very narrow
-	- lots of sky in the background
-	- Previous narrow curve with different roadsides
-	- bridge following up
+* very narrow
+* lots of sky in the background
+* Previous narrow curve with different roadsides
+* bridge following up
 	
 Makes it hard for the model to grasp it. The training set thus contained multiple runs through this curve, to get a better training in this point.
+The same holds true for the following two critical points.
+
+![alt text][critical_point_2]
+![alt text][critical_point_2]
+
+The have the same issues as mentioned before. And could be solved by adding more training data to the system.
 
 
 ####3. Creation of the Training Set & Training Process
