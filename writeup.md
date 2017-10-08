@@ -21,8 +21,8 @@ The goals / steps of this project are the following:
 [val_loss_3]: ./examples/val_loss_3.PNG "Loss Function over Epochs"
 [val_loss_4]: ./examples/val_loss_4.PNG "Loss Function over Epochs"
 [val_loss_5]: ./examples/val_loss_5.PNG "Loss Function over Epochs"
-[offtrack] : ./examples/offtrack_navigation.PNG "Offtrack Navigation"
-[critical_point_1] : ./examples/critical_point_1.PNG "Critical Point Curve"
+[offtrack]: ./examples/offtrack_navigation.PNG "Offtrack Navigation"
+[critical_point_1]: ./examples/critical_point_1.PNG "Critical Point Curve"
 ---
 
 ### Model Architecture and Training Strategy
