@@ -32,8 +32,35 @@ The goals / steps of this project are the following:
 The training set has gone through a lot of changes throughout the process, and thus the provided three analysis points are already biased,
 by some prior knowledge of training.
 
+[hist_data]: ./examples/hist_angle.PNG "Histogram of Angles"
+![alt text][hist_data]
+
+In order to get more training data, the images from the left and right camera were included, and the teaching angle of those images was the
+measuread angle +/- 0.25 degress. Because most of the training data is in the middle of the road, those three peaks correspond to this mode.
+
+Also because also inverted images with the negative measurement value were taken into account for the traning, the histogram is completely symmetrical
+
+As a comparison, the training data before any improvements were made, looked as follows:
+
+[hist_data]: ./examples/hist_angle_v1.PNG "Histogram of Angles"
+![alt text][hist_data]
+
+Due to the nature of the track with it's tendency to go left, the data looked very onesided and unequally distributed.
+
 My first approach to analye the dataset, was to normalize the images. Also, to ensure, that only relevant information is on the images provided
 to the neural network, the images were cropped. 
+
+Original Image
+[original]: ./examples/original_image.PNG "Original Image"
+![alt text][original]
+
+Normalized Image
+[normalized]: ./examples/normalized.PNG "Normalized Image"
+![alt text][normalized]
+
+Cropped Image
+[cropped]: ./examples/cropped.PNG "Cropped Image"
+![alt text][cropped]
 
 ### Model Architecture and Training Strategy
 
