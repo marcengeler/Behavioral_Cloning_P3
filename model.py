@@ -1,6 +1,6 @@
 import csv
-import cv2
 import numpy as np
+from PIL import Image
 
 
 ### Read in the CSV Data ###
@@ -17,7 +17,7 @@ measurements = []
 for line in lines:
 	for i in range(3):
 		source_path = line[i]
-		image = cv2.imread(source_path)
+		image = np.array(Image.open(source_path))
 		# Read in the image
 		images.append(image)
 		# Also mirror the image
@@ -33,6 +33,7 @@ for line in lines:
 		# Append measurements for the image and the inverted image
 		measurements.append(measurement)
 		measurements.append(-measurement)
+
 
 X_train = np.asarray(images)
 y_train = measurements
@@ -57,10 +58,10 @@ model.add(Convolution2D(64, 3,3, border_mode='same', activation='relu'))
 model.add(Flatten())
 model.add(Activation('relu'))
 model.add(Dropout(0.50))
-model.add(Dense(128))
+model.add(Dense(64))
 model.add(Activation('relu'))
 model.add(Dropout(0.50))
-model.add(Dense(64))
+model.add(Dense(32))
 model.add(Activation('relu'))
 model.add(Dense(1))
 

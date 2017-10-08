@@ -27,6 +27,14 @@ The goals / steps of this project are the following:
 
 ---
 
+### Analyzing the Training Set
+
+The training set has gone through a lot of changes throughout the process, and thus the provided three analysis points are already biased,
+by some prior knowledge of training.
+
+My first approach to analye the dataset, was to normalize the images. Also, to ensure, that only relevant information is on the images provided
+to the neural network, the images were cropped. 
+
 ### Model Architecture and Training Strategy
 
 The model architecture which has inspired my architecture was the one mentioned in the course videos. The arcticle from NVIDIA
