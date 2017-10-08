@@ -51,14 +51,17 @@ My first approach to analye the dataset, was to normalize the images. Also, to e
 to the neural network, the images were cropped. 
 
 Original Image
+
 [original]: ./examples/original_image.PNG "Original Image"
 ![alt text][original]
 
 Normalized Image
+
 [normalized]: ./examples/normalized.PNG "Normalized Image"
 ![alt text][normalized]
 
 Cropped Image
+
 [cropped]: ./examples/cropped.PNG "Cropped Image"
 ![alt text][cropped]
 
