@@ -13,7 +13,6 @@ The goals / steps of this project are the following:
 * Summarize the results with a written report
 
 
-[//]: # (Image References)
 
 [nvidianet]: ./examples/network_architecture.PNG "NVIDIA Network Architecture"
 [val_loss_1]: ./examples/val_loss_1.PNG "Loss Function over Epochs"
@@ -23,6 +22,7 @@ The goals / steps of this project are the following:
 [val_loss_5]: ./examples/val_loss_5.PNG "Loss Function over Epochs"
 [offtrack]: ./examples/offtrack_navigation.PNG "Offtrack Navigation"
 [critical_point_1]: ./examples/critical_point_1.PNG "Critical Point Curve"
+
 ---
 
 ### Model Architecture and Training Strategy
